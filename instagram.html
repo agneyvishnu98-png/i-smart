@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Smart Website</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  background: linear-gradient(135deg,#0f2027,#2c5364,#00c6ff);
+  color:white;
+}
+
+/* NAV */
+nav{
+  display:flex;
+  justify-content:space-between;
+  padding:20px 40px;
+}
+
+nav a{
+  color:white;
+  margin-left:15px;
+  text-decoration:none;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:60px 20px;
+}
+
+.hero h1{
+  font-size:2.5rem;
+}
+
+/* CARDS */
+.section{
+  padding:40px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+}
+
+.card{
+  background:rgba(255,255,255,0.1);
+  padding:25px;
+  border-radius:15px;
+  backdrop-filter:blur(10px);
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:scale(1.05);
+}
+
+/* RESULT BOX */
+#output{
+  margin-top:30px;
+  padding:20px;
+  border-radius:15px;
+  background:rgba(0,0,0,0.3);
+  display:none;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+  .cards{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<nav>
+  <h2>MySite 🚀</h2>
+  <div>
+    <a href="#">Home</a>
+    <a href="#">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>🔥 Smart Gaming & Tech Hub</h1>
+  <p>Click below to explore tips, fixes & guides</p>
+</div>
+
+<div class="section">
+
+  <div class="cards">
+
+    <!-- GAMING -->
+    <div class="card" onclick="gaming()">
+      <h3>🎮 Gaming</h3>
+      <p>Fix bugs, improve FPS & explore mods</p>
+    </div>
+
+    <!-- TECH -->
+    <div class="card" onclick="tech()">
+      <h3>💻 Tech</h3>
+      <p>Boost performance & fix common issues</p>
+    </div>
+
+  </div>
+
+  <div id="output"></div>
+
+</div>
+
+<script>
+
+function gaming(){
+  let game = prompt("🎮 Enter game name (GTA V / Free Fire / BGMI):");
+
+  let output = document.getElementById("output");
+  output.style.display = "block";
+
+  if(!game) return;
+
+  game = game.toLowerCase();
+
+  if(game.includes("gta")){
+    output.innerHTML = `
+    <h2>🎮 GTA V – Fix Lag & Improve Gameplay 🚀</h2>
+
+    <p>
+    ⚡ <b>Lower Graphics Settings:</b> Reducing ultra settings helps your PC run the game smoother without lag spikes.<br><br>
+
+    🛠️ <b>Update GPU Drivers:</b> New drivers improve performance and fix bugs that cause crashes or black screens.<br><br>
+
+    🚫 <b>Disable Overlays:</b> Steam or Discord overlays use extra resources, turning them off gives better FPS.<br><br>
+
+    💡 <b>Why this works?</b> GTA V is a heavy game, and small optimizations can give a big FPS boost and smoother gameplay 😎<br><br>
+
+    🔗 <a href="https://www.gta5-mods.com" target="_blank" style="color:yellow;">Explore GTA Mods Here</a>
+    </p>`;
+  }
+
+  else if(game.includes("free fire") || game.includes("bgmi")){
+    output.innerHTML = `
+    <h2>📱 Mobile Gaming – Smooth Gameplay Tips 🔥</h2>
+
+    <p>
+    ⚡ <b>Enable Game Mode:</b> This boosts performance by focusing your phone only on the game.<br><br>
+
+    📉 <b>Lower Graphics:</b> Helps reduce lag and gives more stable FPS during fights.<br><br>
+
+    🔥 <b>Close Background Apps:</b> Frees RAM so your game runs without interruptions.<br><br>
+
+    📶 <b>Stable Internet:</b> A strong connection reduces ping and avoids sudden lag.<br><br>
+
+    💡 <b>Why this works?</b> Mobile devices have limited power, so optimizing usage gives smoother gameplay 🎯
+    </p>`;
+  }
+
+  else{
+    output.innerHTML = `
+    <h2>🎮 General Gaming Tips 🎯</h2>
+
+    <p>
+    ⚡ <b>Keep System Updated:</b> Updates fix bugs and improve performance.<br><br>
+
+    🧹 <b>Clear Cache:</b> Removes junk files that slow down games.<br><br>
+
+    🔧 <b>Optimize Settings:</b> Adjust graphics based on your device power.<br><br>
+
+    💡 <b>Why this works?</b> Clean and optimized systems always run games faster and smoother 🚀
+    </p>`;
+  }
+}
+
+function tech(){
+  let output = document.getElementById("output");
+  output.style.display = "block";
+
+  output.innerHTML = `
+  <h2>💻 Boost Your PC Performance Like a Pro 🚀</h2>
+
+  <p>
+  ⚡ <b>Disable Startup Apps:</b> Too many apps at startup slow down your PC. Turning them off makes boot faster.<br><br>
+
+  🧹 <b>Clean Temporary Files:</b> Junk files take space and reduce speed. Cleaning them improves performance instantly.<br><br>
+
+  🔥 <b>Update Drivers:</b> Old drivers can cause lag, crashes, and bugs. Keeping them updated ensures smooth performance.<br><br>
+
+  💾 <b>Increase Virtual Memory:</b> Helps when RAM is low, reducing lag during heavy tasks.<br><br>
+
+  🛠️ <b>Fix Common Issues:</b> Restart services, scan for errors, and keep Windows updated to avoid problems.<br><br>
+
+  💡 <b>Why this works?</b> Your PC becomes faster when unnecessary load is removed and resources are used efficiently 😎
+  </p>
+  `;
+}
+
+</script>
+
+</body>
+</html>
